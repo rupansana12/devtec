@@ -13,7 +13,7 @@ import lombok.Data;
 @SuppressWarnings("serial")
 @Entity
 @Table(name="Reposicao_Has_Venda")
-public class ReposicaoVenda {
+public class ReposicaoVenda extends AbstractEntity<Long>{
 	
 	@ManyToOne
 	@JoinColumn(name="venda_id")
@@ -28,5 +28,39 @@ public class ReposicaoVenda {
 	
 	@Column(name="quantidade")
 	Integer quantidade;
+
+	public Venda getVenda() {
+		return venda;
+	}
+
+	public void setVenda(Venda venda) {
+		this.venda = venda;
+	}
+
+	public Reposicao getReposicao() {
+		return reposicao;
+	}
+
+	public void setReposicao(Reposicao reposicao) {
+		this.reposicao = reposicao;
+	}
+
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
+	
+	
 
 }

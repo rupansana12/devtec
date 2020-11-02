@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+	    <section class="layout-content" layout:fragment="corpo">
+	
+	        <nav class="navbar navbar-expand-md bg-light">
+	            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+	                <ul class="navbar-nav mr-auto">
+	                    <li class="nav-item active">
+	                        <i class="oi oi-caret-right"></i>
+	                        <span>Cadastrar Fornecedores</span>
+	                    </li>
+	                </ul>
+	                <a class="btn btn-primary btn-md" href="/fornecedores/listar" role="button">
+	                    <span class="oi oi-spreadsheet" title="Listar" aria-hidden="true"></span>
+	                    <span>Listar Fornecedores</span>
+	                </a>
+	            </div>
+	        </nav>
+	
+	        <div class="container" id="cadastro">
+	        <div th:replace="fragments/alert"></div>
+	            <form th:action="${fornecedor.id == null} ? @{/fornecedores/salvar} :  @{/fornecedores/editar}" th:object="${fornecedor}" method="POST">
+	                <div class="form-row">
+	                    <div class="form-group col-md-6">
+	                        <label for="nome">Designacao</label>
+	                        <input type="text" class="form-control" id="nome"
+	                               placeholder="Designacao do fornecedor" autofocus="autofocus" th:field="*{nome}"/>
+	                    </div>
+	                    <div class="form-group col-md-6">
+	                        <label for="nome">Endereco</label>
+	                        <input type="text" class="form-control" id="nome" placeholder="Endereco"
+	                               autofocus="autofocus" th:field="*{endereco}"/>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-6">
+	                        <label for="nome">Tell</label>
+	                        <input type="text" class="form-control" id="nome" placeholder="Tell"
+	                               autofocus="autofocus" th:field="*{celular}"/>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                </div>
+	                <input type="hidden" id="id" th:field="*{id}"/>
+	                <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+	            </form>
+	        </div>
+	    </section>
+</body>
+</html>

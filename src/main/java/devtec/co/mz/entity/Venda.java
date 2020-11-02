@@ -15,4 +15,12 @@ public class Venda extends AbstractEntity<Long>{
 	@Column(name="nome_cliente")
 	private String nomeCliente;
 
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
+	}
+	
 }
